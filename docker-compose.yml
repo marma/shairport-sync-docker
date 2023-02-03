@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  shairport-sync:
+    build:
+      context: .
+    network_mode: "host"
+    restart: unless-stopped
+    devices:
+      - /dev/snd:/dev/snd
+    volumes:
+      - ./shairport-sync.conf:/etc/shairport-sync.conf
+      - ./asound.conf:/etc/asound.conf
+
